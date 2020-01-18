@@ -12,8 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -28,6 +27,7 @@ import com.collabera.teambeans.capstonebeansbackend.mysql.types.Status;
  * @date 2020-01-18
  */
 @Entity
+@Table(name="todotask")
 public class TodoTask{
 	
 	@Id
@@ -46,6 +46,8 @@ public class TodoTask{
 	@Enumerated(EnumType.STRING)
 	private Status status;	
 
+	
+	/*
 	@ManyToOne
 	@JoinColumn(name="user_id", referencedColumnName = "id")
 	private User user;
@@ -55,6 +57,7 @@ public class TodoTask{
 
 	@Temporal(TemporalType.TIME)
 	private LocalTime dueTime;
+*/
 
 	/**
 	 * Constructs a new To Do task with no information. This is really only here for use by spring beans.
@@ -74,8 +77,8 @@ public class TodoTask{
 		this.description = description;
 		this.status = status;
 		this.priority = priority;
-		this.dueTime = dueTime;
-		this.dueDate = dueDate;
+		//this.dueTime = dueTime;
+		//this.dueDate = dueDate;
 	}
 	/**
 	 * 
@@ -133,59 +136,45 @@ public class TodoTask{
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	/**
-	 * 
-	 * @return this todotask's user
-	 */
+
+	/*
 	public User getUser() {
 		return user;
 	}
-	/**
-	 * 
-	 * @param user
-	 */
+
 	public void setUser(User user) {
 		this.user = user;
 	}
-	/**
-	 * 
-	 * @return this todotask's due date
-	 */
+	
+
+	
 	public Date getDueDate() {
 		return dueDate;
 	}
 
-	/**
-	 * 
-	 * @param dueDate this todotask's due time
-	 */
+
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
+
 	public LocalTime getDueTime() {
 		return dueTime;
 	}
 
-	/**
-	 * 
-	 * @param dueTime
-	 */
+
 	public void setDueTime(LocalTime dueTime) {
 		this.dueTime = dueTime;
 	}
+	*/
 	
 	/**
 	 * 
 	 */
 	@Override
 	public String toString() {
-		return "TodoTask [id=" + id + ", description=" + description + ", priority=" + priority + ", status=" + status
-				+ ", user=" + user + ", dueDate=" + dueDate + ", dueTime=" + dueTime + "]";
+		return "TodoTask [id=" + id + ", description=" + description + ", priority=" + priority + ", status=" + status;
+			
 	}
 }
 

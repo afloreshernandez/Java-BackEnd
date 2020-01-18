@@ -46,12 +46,16 @@ public class TodoDaily{
 	@Enumerated(EnumType.STRING)
 	private Status status;	
 
+	/*
 	@ManyToOne
 	@JoinColumn(name="user_id", referencedColumnName = "id")
 	private User user;
-
+	*/
+	
+	/*
 	@Temporal(TemporalType.TIME)
 	private LocalTime dueTime;
+	*/
 
 	/**
 	 * Constructs a new To Do task with no information. This is really only here for use by spring beans.
@@ -71,7 +75,7 @@ public class TodoDaily{
 		this.description = description;
 		this.status = status;
 		this.priority = priority;
-		this.dueTime = dueTime;
+		//this.dueTime = dueTime;
 	}
 	/**
 	 * 
@@ -129,43 +133,36 @@ public class TodoDaily{
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	/**
-	 * 
-	 * @return this todotask's user
-	 */
+
+	/*
 	public User getUser() {
 		return user;
 	}
-	/**
-	 * 
-	 * @param user
-	 */
+	
 	public void setUser(User user) {
 		this.user = user;
 	}
-	/**
-	 * 
-	 * @return
-	 */
+	*/
+	
+	/*
+
 	public LocalTime getDueTime() {
 		return dueTime;
 	}
 
-	/**
-	 * 
-	 * @param dueTime
-	 */
+
 	public void setDueTime(LocalTime dueTime) {
 		this.dueTime = dueTime;
 	}
 
+	
 	/**
 	 * 
 	 */
 	@Override
 	public String toString() {
 		return "TodoDaily [id=" + id + ", description=" + description + ", priority=" + priority + ", status=" + status
-				+ ", user=" + user + ", dueTime=" + dueTime + "]";
+				+ "]";
 	}
 }
 
