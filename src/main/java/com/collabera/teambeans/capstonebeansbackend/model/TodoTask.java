@@ -2,7 +2,6 @@ package com.collabera.teambeans.capstonebeansbackend.model;
 
 import java.sql.Date;
 import java.time.LocalTime;
-import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,15 +14,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.PriorityLevel;
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.Status;
-
-import javax.validation.constraints.NotBlank;
 
 
 @Entity
@@ -74,6 +71,116 @@ public class TodoTask{
 		this.description = description;
 		this.status = status;
 		this.priority = priority;
+	}
+	/**
+	 * 
+	 * @return this todotask's id
+	 */
+	public Long getId() {
+		return id;
+	}
+	/**
+	 * 
+	 * @param id
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
+	/**
+	 * 
+	 * @return this todotask's description
+	 */
+	public String getDescription() {
+		return description;
+	}
+	/**
+	 * 
+	 * @param description
+	 */
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	/**
+	 * 
+	 * @return this todotask's priority level
+	 */
+	public PriorityLevel getPriority() {
+		return priority;
+	}
+	/**
+	 * 
+	 * @param priority
+	 */
+	public void setPriority(PriorityLevel priority) {
+		this.priority = priority;
+	}
+	/**
+	 * 
+	 * @return this todotask's completion status
+	 */
+	public Status getStatus() {
+		return status;
+	}
+	/**
+	 * 
+	 * @param status
+	 */
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+	/**
+	 * 
+	 * @return this todotask's user
+	 */
+	public User getUser() {
+		return user;
+	}
+	/**
+	 * 
+	 * @param user
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
+	/**
+	 * 
+	 * @return this todotask's due date
+	 */
+	public Date getDueDate() {
+		return dueDate;
+	}
+
+	/**
+	 * 
+	 * @param dueDate this todotask's due time
+	 */
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public LocalTime getDueTime() {
+		return dueTime;
+	}
+
+	/**
+	 * 
+	 * @param dueTime
+	 */
+	public void setDueTime(LocalTime dueTime) {
+		this.dueTime = dueTime;
+	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public String toString() {
+		return "TodoTask [id=" + id + ", description=" + description + ", priority=" + priority + ", status=" + status
+				+ ", user=" + user + ", dueDate=" + dueDate + ", dueTime=" + dueTime + "]";
 	}
 }
 
