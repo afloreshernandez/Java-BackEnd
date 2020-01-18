@@ -22,7 +22,11 @@ import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.PriorityLevel;
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.Status;
 
-
+/**
+ * 
+ * @author Stefan Sternberg
+ * @date 2020-01-18
+ */
 @Entity
 public class TodoTask{
 	
