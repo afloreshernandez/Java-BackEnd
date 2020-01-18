@@ -21,6 +21,7 @@ import javax.persistence.TemporalType;
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.PriorityLevel;
+import com.collabera.teambeans.capstonebeansbackend.mysql.types.Status;
 
 import javax.validation.constraints.NotBlank;
 
@@ -37,7 +38,7 @@ public class TodoTask{
 	private String description;
 
 	@NotBlank
-	@Enumerated(EnumType.String)
+	@Enumerated(EnumType.STRING)
 	private PriorityLevel priority;
 
 	@NotBlank
@@ -58,7 +59,7 @@ public class TodoTask{
 	 * Constructs a new To Do task with no information. This is really only here for use by spring beans.
 	 */
 	public TodoTask() {
-		this(-1L, "N/A", Status.PENDING, PriorityLevel.NORMAL, Calendar.);
+		//this(-1L, "N/A", Status.PENDING, PriorityLevel.NORMAL, Calendar.);
 	}
 
 	/**
