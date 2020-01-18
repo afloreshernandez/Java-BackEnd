@@ -28,10 +28,10 @@ import com.collabera.teambeans.capstonebeansbackend.mysql.types.Status;
  * @date 2020-01-18
  */
 @Entity
-public class TodoTask{
+public class TodoDaily{
 	
 	@Id
-	@Column(name="todo_id")
+	@Column(name="todo_daily_id")
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long id;
 
@@ -50,16 +50,13 @@ public class TodoTask{
 	@JoinColumn(name="user_id", referencedColumnName = "id")
 	private User user;
 
-	@Temporal(TemporalType.DATE)
-	private Date dueDate;
-
 	@Temporal(TemporalType.TIME)
 	private LocalTime dueTime;
 
 	/**
 	 * Constructs a new To Do task with no information. This is really only here for use by spring beans.
 	 */
-	public TodoTask() {
+	public TodoDaily() {
 	}
 
 	/**
@@ -68,14 +65,13 @@ public class TodoTask{
 	 * @param balance
 	 * @param type
 	 */
-	public TodoTask(Long id, @NotBlank String description, @NotBlank Status status, @NotBlank PriorityLevel priority, @NotNull Date dueDate, @NotNull LocalTime time) {
+	public TodoDaily(Long id, @NotBlank String description, @NotBlank Status status, @NotBlank PriorityLevel priority, @NotNull LocalTime time) {
 		super();
 		this.id = id;
 		this.description = description;
 		this.status = status;
 		this.priority = priority;
 		this.dueTime = dueTime;
-		this.dueDate = dueDate;
 	}
 	/**
 	 * 
@@ -149,22 +145,6 @@ public class TodoTask{
 	}
 	/**
 	 * 
-	 * @return this todotask's due date
-	 */
-	public Date getDueDate() {
-		return dueDate;
-	}
-
-	/**
-	 * 
-	 * @param dueDate this todotask's due time
-	 */
-	public void setDueDate(Date dueDate) {
-		this.dueDate = dueDate;
-	}
-
-	/**
-	 * 
 	 * @return
 	 */
 	public LocalTime getDueTime() {
@@ -178,16 +158,17 @@ public class TodoTask{
 	public void setDueTime(LocalTime dueTime) {
 		this.dueTime = dueTime;
 	}
-	
+
 	/**
 	 * 
 	 */
 	@Override
 	public String toString() {
-		return "TodoTask [id=" + id + ", description=" + description + ", priority=" + priority + ", status=" + status
-				+ ", user=" + user + ", dueDate=" + dueDate + ", dueTime=" + dueTime + "]";
+		return "TodoDaily [id=" + id + ", description=" + description + ", priority=" + priority + ", status=" + status
+				+ ", user=" + user + ", dueTime=" + dueTime + "]";
 	}
 }
+
 
 
 
