@@ -16,10 +16,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+
+
 import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.PriorityLevel;
-import com.sun.istack.NotNull;
+
+import javax.validation.constraints.NotBlank;
+
 
 @Entity
 public class TodoTask{
