@@ -1,7 +1,7 @@
 package com.collabera.teambeans.capstonebeansbackend.model;
 
-import java.sql.Date;
-import java.time.LocalTime;
+
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -51,7 +51,7 @@ public class TodoDaily{
 	private User user;
 
 	@Temporal(TemporalType.TIME)
-	private LocalTime dueTime;
+	private Date dueTime;
 
 	/**
 	 * Constructs a new To Do task with no information. This is really only here for use by spring beans.
@@ -65,7 +65,7 @@ public class TodoDaily{
 	 * @param balance
 	 * @param type
 	 */
-	public TodoDaily(Long id, @NotBlank String description, @NotBlank Status status, @NotBlank PriorityLevel priority, @NotNull LocalTime time) {
+	public TodoDaily(Long id, @NotBlank String description, @NotBlank Status status, @NotBlank PriorityLevel priority, @NotNull Date time) {
 		super();
 		this.id = id;
 		this.description = description;
@@ -147,7 +147,7 @@ public class TodoDaily{
 	 * 
 	 * @return
 	 */
-	public LocalTime getDueTime() {
+	public Date getDueTime() {
 		return dueTime;
 	}
 
@@ -155,7 +155,7 @@ public class TodoDaily{
 	 * 
 	 * @param dueTime
 	 */
-	public void setDueTime(LocalTime dueTime) {
+	public void setDueTime(Date dueTime) {
 		this.dueTime = dueTime;
 	}
 
