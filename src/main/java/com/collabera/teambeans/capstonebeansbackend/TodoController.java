@@ -31,5 +31,17 @@ public class TodoController {
 		return todo;
 	}
 	
-	
+	@GetMapping("/todo")
+	public TodoTask getTodo() {
+		TodoTask todo = new TodoTask();
+		todo.setDescription("Test Desc");
+		todo.setDueDate(Date.valueOf(LocalDate.now()));
+		todo.setDueTime(Date.valueOf(LocalDate.now()));
+		todo.setId(-1L);
+		todo.setPriority(PriorityLevel.NORMAL);
+		todo.setStatus(Status.PENDING);
+		todo.setUser(new UserDetails());
+		
+		return todo;
+	}
 }
