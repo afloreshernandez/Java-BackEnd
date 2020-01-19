@@ -47,8 +47,8 @@ public class TodoDaily{
 	private Status status;	
 
 	@ManyToOne
-	@JoinColumn(name="user_id", referencedColumnName = "id")
-	private User user;
+	@JoinColumn(name="user_id", referencedColumnName = "user_id")
+	private UserDetails user;
 
 	@Temporal(TemporalType.TIME)
 	private Date dueTime;
@@ -133,14 +133,14 @@ public class TodoDaily{
 	 * 
 	 * @return this todotask's user
 	 */
-	public User getUser() {
+	public UserDetails getUser() {
 		return user;
 	}
 	/**
 	 * 
 	 * @param user
 	 */
-	public void setUser(User user) {
+	public void setUser(UserDetails user) {
 		this.user = user;
 	}
 	/**

@@ -1,7 +1,6 @@
 package com.collabera.teambeans.capstonebeansbackend.model;
 
 import java.util.Date;
-import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,8 +15,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.PriorityLevel;
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.Status;
@@ -47,8 +44,8 @@ public class TodoTask{
 	private Status status;	
 
 	@ManyToOne
-	@JoinColumn(name="user_id", referencedColumnName = "id")
-	private User user;
+	@JoinColumn(name="user_id", referencedColumnName = "user_id")
+	private UserDetails user;
 
 	@Temporal(TemporalType.DATE)
 	private Date dueDate;
@@ -137,14 +134,14 @@ public class TodoTask{
 	 * 
 	 * @return this todotask's user
 	 */
-	public User getUser() {
+	public UserDetails getUser() {
 		return user;
 	}
 	/**
 	 * 
 	 * @param user
 	 */
-	public void setUser(User user) {
+	public void setUser(UserDetails user) {
 		this.user = user;
 	}
 	/**
