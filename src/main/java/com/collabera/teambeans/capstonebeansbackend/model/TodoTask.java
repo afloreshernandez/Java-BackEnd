@@ -1,6 +1,5 @@
 package com.collabera.teambeans.capstonebeansbackend.model;
 
-import java.time.LocalTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -13,10 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.PriorityLevel;
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.Status;
@@ -27,6 +26,8 @@ import com.collabera.teambeans.capstonebeansbackend.mysql.types.Status;
  * @date 2020-01-18
  */
 @Entity
+@CrossOrigin(origins = "http://localhost:4200")
+@Table(name="TodoTask")
 public class TodoTask{
 	
 	@Id
@@ -43,17 +44,27 @@ public class TodoTask{
 	@Enumerated(EnumType.STRING)
 	private Status status;	
 
-	
+
 	@ManyToOne
+<<<<<<< HEAD
 	@JoinColumn(name="user_id")
 	private UserDetails user;
 
+=======
+	@JoinColumn(name="user_id", referencedColumnName = "user_id")
+	private UserDetails user;
+	
+
+	
+	/*
+>>>>>>> branch 'master' of https://github.com/afloreshernandez/Java-BackEnd
 	@Temporal(TemporalType.DATE)
 	private Date dueDate;
 
 	@Temporal(TemporalType.TIME)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
 	private Date dueTime;
-
+*/
 
 	/**
 	 * Constructs a new To Do task with no information. This is really only here for use by spring beans.
@@ -132,22 +143,19 @@ public class TodoTask{
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	/**
-	 * 
-	 * @return this todotask's user
-	 */
+
+	
+	
 	public UserDetails getUser() {
 		return user;
 	}
-	/**
-	 * 
-	 * @param user
-	 */
+
 	public void setUser(UserDetails user) {
 		this.user = user;
 	}
-
 	
+
+	/*
 	public Date getDueDate() {
 		return dueDate;
 	}
@@ -156,23 +164,25 @@ public class TodoTask{
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
-
+*/
 	/**
 	 * 
 	 * @return
 	 */
-	public Date getDueTime() {
-		return dueTime;
-	}
-
-	/**
-	 * 
-	 * @param dueTime
-	 */
-	public void setDueTime(Date dueTime) {
-
-		this.dueTime = dueTime;
-	}
+	
+//	
+//	public Date getDueTime() {
+//		return dueTime;
+//	}
+//
+//	/**
+//	 * 
+//	 * @param dueTime
+//	 */
+//	public void setDueTime(Date dueTime) {
+//
+//		this.dueTime = dueTime;
+//	}
 	//*/
 	
 	/**
@@ -184,7 +194,5 @@ public class TodoTask{
 			
 	}
 }
-
-
 
 

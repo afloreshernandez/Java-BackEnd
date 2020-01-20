@@ -7,7 +7,10 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+<<<<<<< HEAD
 import javax.persistence.FetchType;
+=======
+>>>>>>> branch 'master' of https://github.com/afloreshernandez/Java-BackEnd
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,8 +19,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
+<<<<<<< HEAD
 import org.hibernate.annotations.FetchMode;
 
+=======
+>>>>>>> branch 'master' of https://github.com/afloreshernandez/Java-BackEnd
 /**
  * 
  * @author Alex
@@ -26,12 +32,14 @@ import org.hibernate.annotations.FetchMode;
 @Entity
 @Table(name="user_details")
 public class UserDetails {
+	
 	@Id
 	@Column(name = "user_Id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long userId;
 	
-	@NotBlank
+	//@NotBlank
+	@NotEmpty
 	private String firstName;
 	
 	@NotEmpty
@@ -45,22 +53,19 @@ public class UserDetails {
 	
 	@NotBlank
 	private String userRole;
-	
-	/*
-	
-	//using user role as enum
-	@Enumerated(EnumType.STRING)
-	@NotBlank
-	private UserRole userRole;
-	
-	*/
 
+<<<<<<< HEAD
 	@OneToMany(mappedBy = "user", targetEntity = TodoTask.class, fetch= FetchType.EAGER, cascade = CascadeType.ALL)
 	Set<TodoTask> todoTasks = new HashSet<>();
 	
 	@OneToMany(mappedBy="user", targetEntity=TodoDaily.class, fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	Set<TodoDaily> todoDailies = new HashSet<>();
 	
+=======
+	@OneToMany
+	List<TodoTask> todotasks;
+
+>>>>>>> branch 'master' of https://github.com/afloreshernandez/Java-BackEnd
 	public UserDetails() {
 		super();
 	}
