@@ -150,7 +150,6 @@ public class TodoTask{
 
 		this.user = user;
 	}
-	
 
 	
 	public Date getDueDate() {
