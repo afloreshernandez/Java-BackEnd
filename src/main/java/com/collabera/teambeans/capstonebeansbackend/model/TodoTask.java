@@ -27,7 +27,6 @@ import com.collabera.teambeans.capstonebeansbackend.mysql.types.Status;
  * @date 2020-01-18
  */
 @Entity
-@Table(name="todotask")
 public class TodoTask{
 	
 	@Id
@@ -147,10 +146,8 @@ public class TodoTask{
 	 * @param user
 	 */
 	public void setUser(UserDetails user) {
-
 		this.user = user;
 	}
-	
 
 	
 	public Date getDueDate() {
