@@ -47,7 +47,7 @@ public class TodoDaily{
 	private Status status;	
 
 	@ManyToOne
-	@JoinColumn(name="user_id", referencedColumnName = "user_id")
+	@JoinColumn(name="user_id")
 	private UserDetails user;
 
 	@Temporal(TemporalType.TIME)

@@ -64,7 +64,6 @@ public class TodoController {
 		
 		System.out.println(todo);
 		
-		
 		if(todo.getUser()==null)
 			todo.setUser(new UserDetails());
 		
