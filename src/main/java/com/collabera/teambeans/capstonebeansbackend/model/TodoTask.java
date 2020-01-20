@@ -11,8 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -25,6 +24,7 @@ import com.collabera.teambeans.capstonebeansbackend.mysql.types.Status;
  * @date 2020-01-18
  */
 @Entity
+@Table(name="todotask")
 public class TodoTask{
 	
 	@Id
@@ -43,6 +43,8 @@ public class TodoTask{
 	@Enumerated(EnumType.STRING)
 	private Status status;	
 
+	
+	/*
 	@ManyToOne
 	@JoinColumn(name="user_id", referencedColumnName = "user_id")
 	private UserDetails user;
@@ -51,7 +53,12 @@ public class TodoTask{
 	private Date dueDate;
 
 	@Temporal(TemporalType.TIME)
+<<<<<<< HEAD
 	private Date dueTime;
+=======
+	private LocalTime dueTime;
+*/
+>>>>>>> remotes/origin/database-connection
 
 	/**
 	 * Constructs a new To Do task with no information. This is really only here for use by spring beans.
@@ -71,8 +78,8 @@ public class TodoTask{
 		this.description = description;
 		this.status = status;
 		this.priority = priority;
-		this.dueTime = dueTime;
-		this.dueDate = dueDate;
+		//this.dueTime = dueTime;
+		//this.dueDate = dueDate;
 	}
 	/**
 	 * 
@@ -130,6 +137,7 @@ public class TodoTask{
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+<<<<<<< HEAD
 	/**
 	 * 
 	 * @return this todotask's user
@@ -142,24 +150,30 @@ public class TodoTask{
 	 * @param user
 	 */
 	public void setUser(UserDetails user) {
+=======
+
+	/*
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+>>>>>>> remotes/origin/database-connection
 		this.user = user;
 	}
-	/**
-	 * 
-	 * @return this todotask's due date
-	 */
+	
+
+	
 	public Date getDueDate() {
 		return dueDate;
 	}
 
-	/**
-	 * 
-	 * @param dueDate this todotask's due time
-	 */
+
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * 
 	 * @return
@@ -173,16 +187,26 @@ public class TodoTask{
 	 * @param dueTime
 	 */
 	public void setDueTime(Date dueTime) {
+=======
+
+	public LocalTime getDueTime() {
+		return dueTime;
+	}
+
+
+	public void setDueTime(LocalTime dueTime) {
+>>>>>>> remotes/origin/database-connection
 		this.dueTime = dueTime;
 	}
+	*/
 	
 	/**
 	 * 
 	 */
 	@Override
 	public String toString() {
-		return "TodoTask [id=" + id + ", description=" + description + ", priority=" + priority + ", status=" + status
-				+ ", user=" + user + ", dueDate=" + dueDate + ", dueTime=" + dueTime + "]";
+		return "TodoTask [id=" + id + ", description=" + description + ", priority=" + priority + ", status=" + status;
+			
 	}
 }
 
