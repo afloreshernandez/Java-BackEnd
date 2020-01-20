@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.collabera.teambeans.capstonebeansbackend.model.UserDetails;
 import com.collabera.teambeans.capstonebeansbackend.repository.UserDetailsRepository;
-import com.collabera.teambeans.capstonebeansbackend.repository.UserRepository;
 
 @RestController
 public class UserController {
@@ -84,16 +84,16 @@ public class UserController {
 //			repository.save(userToUpdate);
 //		}
 //	}
-//
-//	//@PatchMapping("user/")
-//	public void updateRole(String role, Long id) {
-//
-//		User userToUpdate = getUser(id);
-//
-//		if (userToUpdate.getUserID() != -1L) {
-//			userToUpdate.setRole(role);
-//
-//			repository.save(userToUpdate);
-//		}			
-//	}				
+	
+	@PatchMapping("/user/{userId}")
+	public void updateRole(@PathVariable Long id, String userRole) {
+
+		UserDetails userToUpdate = getUser(id);
+
+		if (userToUpdate.getUserId() != -1L) {
+			userToUpdate.setUserRole(userRole);
+
+			repository.save(userToUpdate);
+		}			
+	}				
 }// ends class
