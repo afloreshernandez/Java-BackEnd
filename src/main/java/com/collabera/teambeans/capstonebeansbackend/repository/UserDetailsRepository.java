@@ -6,4 +6,6 @@ import com.collabera.teambeans.capstonebeansbackend.model.UserDetails;
 
 public interface UserDetailsRepository extends JpaRepository<UserDetails, Long>{
 
+	
+	
 }
