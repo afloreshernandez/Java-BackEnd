@@ -1,6 +1,6 @@
 package com.collabera.teambeans.capstonebeansbackend.mysql.types;
 
-public enum typeOfUser {
+public enum UserRole {
 
 	COUNTRYADMINISTRATOR,COUNTYJUDGE,DISTRICTCLERK
 }
