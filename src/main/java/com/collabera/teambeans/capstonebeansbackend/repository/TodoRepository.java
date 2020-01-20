@@ -11,5 +11,5 @@ import com.collabera.teambeans.capstonebeansbackend.model.UserDetails;
 @Repository
 public interface TodoRepository extends JpaRepository<TodoTask, Long>{
 	List<TodoTask> findByUser(UserDetails user);
-	List<TodoTask> findByUser(long user_id);
+	List<TodoTask> findByUser(Long user_id);
 }

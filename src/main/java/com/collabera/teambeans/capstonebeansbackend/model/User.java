@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 
+@Deprecated
 @Entity
 @Table(name="userTable")
 public class User implements Serializable  {
