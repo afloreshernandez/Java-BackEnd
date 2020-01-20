@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.PriorityLevel;
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.Status;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
  * 
@@ -46,25 +49,16 @@ public class TodoTask{
 
 
 	@ManyToOne
-<<<<<<< HEAD
 	@JoinColumn(name="user_id")
 	private UserDetails user;
 
-=======
-	@JoinColumn(name="user_id", referencedColumnName = "user_id")
-	private UserDetails user;
-	
 
-	
-	/*
->>>>>>> branch 'master' of https://github.com/afloreshernandez/Java-BackEnd
 	@Temporal(TemporalType.DATE)
 	private Date dueDate;
 
 	@Temporal(TemporalType.TIME)
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
 	private Date dueTime;
-*/
 
 	/**
 	 * Constructs a new To Do task with no information. This is really only here for use by spring beans.
