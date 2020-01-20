@@ -1,0 +1,6 @@
+Crash course on git
+
+1. Checkout a new branch
+2. make changes to your new branch to add a new feature. making frequent commits along the way.
+3. push your commits any time they reach a point you think others should be able to see them.
+4. once your feature is done merge your branch into the master branch. If yu get merge conflicts you need to resolve them. I am not sure how to do that though.
