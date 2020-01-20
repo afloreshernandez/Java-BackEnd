@@ -1,4 +1,4 @@
-package com.collabera.finalproject.model;
+package com.collabera.teambeans.capstonebeansbackend.model;
 
 import java.io.Serializable;
 
