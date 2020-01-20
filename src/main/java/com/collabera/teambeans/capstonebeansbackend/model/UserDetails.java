@@ -1,6 +1,5 @@
 package com.collabera.teambeans.capstonebeansbackend.model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -45,8 +44,7 @@ public class UserDetails {
 
 	@OneToMany
 	List<TodoTask> todotasks;
-	
-	
+
 	public UserDetails() {
 		super();
 	}

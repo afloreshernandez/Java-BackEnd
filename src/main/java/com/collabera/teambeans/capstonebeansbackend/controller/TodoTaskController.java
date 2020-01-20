@@ -2,6 +2,7 @@ package com.collabera.teambeans.capstonebeansbackend.controller;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,16 +18,16 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.collabera.teambeans.capstonebeansbackend.model.TodoTask;
 import com.collabera.teambeans.capstonebeansbackend.model.UserDetails;
 import com.collabera.teambeans.capstonebeansbackend.repository.TodoRepository;
-import com.collabera.teambeans.capstonebeansbackend.repository.UserRepository;
+import com.collabera.teambeans.capstonebeansbackend.repository.UserDetailsRepository;
 
 @RestController
 public class TodoTaskController {
 
 	@Autowired
 	private TodoRepository todoRepository;
-
+	
 	@Autowired
-	private UserRepository userRepository;
+	private UserDetailsRepository userDetailsRepository;
 
 
 	@GetMapping("/todos/{user_id}")
@@ -65,8 +66,4 @@ public class TodoTaskController {
 
 
 
-
-
-
 }
-
