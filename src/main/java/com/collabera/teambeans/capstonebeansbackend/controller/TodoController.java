@@ -1,4 +1,4 @@
-package com.collabera.teambeans.capstonebeansbackend;
+package com.collabera.teambeans.capstonebeansbackend.controller;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.collabera.teambeans.capstonebeansbackend.model.TodoRepository;
 import com.collabera.teambeans.capstonebeansbackend.model.TodoTask;
 import com.collabera.teambeans.capstonebeansbackend.model.UserDetails;
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.PriorityLevel;
@@ -23,7 +24,6 @@ public class TodoController {
 	public TodoTask getTest() {
 		TodoTask todo = new TodoTask();
 		todo.setDescription("Test Desc");
-		todo.setDueDate(Date.valueOf(LocalDate.now()));
 		todo.setDueTime(Date.valueOf(LocalDate.now()));
 		todo.setId(-1L);
 		todo.setPriority(PriorityLevel.NORMAL);
@@ -37,7 +37,6 @@ public class TodoController {
 	public TodoTask getTodo() {
 		TodoTask todo = new TodoTask();
 		todo.setDescription("Test Desc");
-		todo.setDueDate(Date.valueOf(LocalDate.now()));
 		todo.setDueTime(Date.valueOf(LocalDate.now()));
 		todo.setId(-1L);
 		todo.setPriority(PriorityLevel.NORMAL);

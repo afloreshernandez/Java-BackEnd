@@ -1,4 +1,4 @@
-package com.collabera.teambeans.capstonebeansbackend;
+package com.collabera.teambeans.capstonebeansbackend.controller;
 
 import java.util.List;
 import java.util.Optional;

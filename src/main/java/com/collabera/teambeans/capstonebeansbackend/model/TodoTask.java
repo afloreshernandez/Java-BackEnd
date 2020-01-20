@@ -1,5 +1,6 @@
 package com.collabera.teambeans.capstonebeansbackend.model;
 
+import java.time.LocalTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -12,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -44,7 +47,6 @@ public class TodoTask{
 	private Status status;	
 
 	
-	/*
 	@ManyToOne
 	@JoinColumn(name="user_id", referencedColumnName = "user_id")
 	private UserDetails user;
@@ -53,12 +55,8 @@ public class TodoTask{
 	private Date dueDate;
 
 	@Temporal(TemporalType.TIME)
-<<<<<<< HEAD
 	private Date dueTime;
-=======
-	private LocalTime dueTime;
-*/
->>>>>>> remotes/origin/database-connection
+
 
 	/**
 	 * Constructs a new To Do task with no information. This is really only here for use by spring beans.
@@ -137,7 +135,6 @@ public class TodoTask{
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-<<<<<<< HEAD
 	/**
 	 * 
 	 * @return this todotask's user
@@ -150,15 +147,7 @@ public class TodoTask{
 	 * @param user
 	 */
 	public void setUser(UserDetails user) {
-=======
 
-	/*
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
->>>>>>> remotes/origin/database-connection
 		this.user = user;
 	}
 	
@@ -173,7 +162,6 @@ public class TodoTask{
 		this.dueDate = dueDate;
 	}
 
-<<<<<<< HEAD
 	/**
 	 * 
 	 * @return
@@ -187,18 +175,10 @@ public class TodoTask{
 	 * @param dueTime
 	 */
 	public void setDueTime(Date dueTime) {
-=======
 
-	public LocalTime getDueTime() {
-		return dueTime;
-	}
-
-
-	public void setDueTime(LocalTime dueTime) {
->>>>>>> remotes/origin/database-connection
 		this.dueTime = dueTime;
 	}
-	*/
+	//*/
 	
 	/**
 	 * 

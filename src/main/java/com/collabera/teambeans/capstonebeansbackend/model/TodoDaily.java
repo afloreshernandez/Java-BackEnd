@@ -46,24 +46,13 @@ public class TodoDaily{
 	@Enumerated(EnumType.STRING)
 	private Status status;	
 
-	/*
 	@ManyToOne
-<<<<<<< HEAD
 	@JoinColumn(name="user_id", referencedColumnName = "user_id")
 	private UserDetails user;
 
 	@Temporal(TemporalType.TIME)
 	private Date dueTime;
-=======
-	@JoinColumn(name="user_id", referencedColumnName = "id")
-	private User user;
-	*/
-	
-	/*
-	@Temporal(TemporalType.TIME)
-	private LocalTime dueTime;
-	*/
->>>>>>> remotes/origin/database-connection
+
 
 	/**
 	 * Constructs a new To Do task with no information. This is really only here for use by spring beans.
@@ -141,7 +130,6 @@ public class TodoDaily{
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-<<<<<<< HEAD
 	/**
 	 * 
 	 * @return this todotask's user
@@ -169,27 +157,6 @@ public class TodoDaily{
 	 * @param dueTime
 	 */
 	public void setDueTime(Date dueTime) {
-=======
-
-	/*
-	public User getUser() {
-		return user;
-	}
-	
-	public void setUser(User user) {
-		this.user = user;
-	}
-	*/
-	
-	/*
-
-	public LocalTime getDueTime() {
-		return dueTime;
-	}
-
-
-	public void setDueTime(LocalTime dueTime) {
->>>>>>> remotes/origin/database-connection
 		this.dueTime = dueTime;
 	}
 
