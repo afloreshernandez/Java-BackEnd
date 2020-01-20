@@ -37,11 +37,9 @@ public class TodoTask{
 	@NotBlank
 	private String description;
 
-	@NotBlank
 	@Enumerated(EnumType.STRING)
 	private PriorityLevel priority;
 
-	@NotBlank
 	@Enumerated(EnumType.STRING)
 	private Status status;	
 
