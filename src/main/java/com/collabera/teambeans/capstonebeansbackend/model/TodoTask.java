@@ -1,7 +1,7 @@
+
 package com.collabera.teambeans.capstonebeansbackend.model;
 
 import java.util.Date;
-import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,13 +10,11 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.PriorityLevel;
 import com.collabera.teambeans.capstonebeansbackend.mysql.types.Status;
@@ -29,7 +27,7 @@ import com.collabera.teambeans.capstonebeansbackend.mysql.types.Status;
 @Entity
 @Table(name="todotask")
 public class TodoTask{
-	
+
 	@Id
 	@Column(name="todo_id")
 	@GeneratedValue(strategy= GenerationType.AUTO)
@@ -51,18 +49,22 @@ public class TodoTask{
 	@ManyToOne
 	@JoinColumn(name="user_id", referencedColumnName = "id")
 	private User user;
-
+	*/
+	/*
 	@Temporal(TemporalType.DATE)
 	private Date dueDate;
 
 	@Temporal(TemporalType.TIME)
-<<<<<<< HEAD
-	private LocalTime dueTime;
-*/
-=======
 	private Date dueTime;
->>>>>>> origin/master
+	*/
+	
+	@Temporal(TemporalType.DATE)
+	private java.util.Date dueDate;
 
+	@Temporal(TemporalType.TIME)
+	private java.util.Date dueTime;
+	
+	
 	/**
 	 * Constructs a new To Do task with no information. This is really only here for use by spring beans.
 	 */
@@ -81,8 +83,8 @@ public class TodoTask{
 		this.description = description;
 		this.status = status;
 		this.priority = priority;
-		//this.dueTime = dueTime;
-		//this.dueDate = dueDate;
+		this.dueTime = time;
+		this.dueDate = dueDate;
 	}
 	/**
 	 * 
@@ -149,27 +151,23 @@ public class TodoTask{
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-
-	
+	*/
+	/**
+	 * 
+	 * @return this todotask's due date
+	 */
 	public Date getDueDate() {
 		return dueDate;
 	}
 
-
+	/**
+	 * 
+	 * @param dueDate this todotask's due time
+	 */
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
 
-<<<<<<< HEAD
-
-	public LocalTime getDueTime() {
-		return dueTime;
-	}
-
-
-	public void setDueTime(LocalTime dueTime) {
-=======
 	/**
 	 * 
 	 * @return
@@ -183,21 +181,17 @@ public class TodoTask{
 	 * @param dueTime
 	 */
 	public void setDueTime(Date dueTime) {
->>>>>>> origin/master
 		this.dueTime = dueTime;
 	}
-	*/
-	
+
 	/**
 	 * 
 	 */
+	/*
 	@Override
 	public String toString() {
-		return "TodoTask [id=" + id + ", description=" + description + ", priority=" + priority + ", status=" + status;
-			
+		return "TodoTask [id=" + id + ", description=" + description + ", priority=" + priority + ", status=" + status
+				+ ", user=" + user + ", dueDate=" + dueDate + ", dueTime=" + dueTime + "]";
 	}
+	*/
 }
-
-
-
-
