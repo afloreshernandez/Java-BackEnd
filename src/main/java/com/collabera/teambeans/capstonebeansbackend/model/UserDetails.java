@@ -2,12 +2,16 @@ package com.collabera.teambeans.capstonebeansbackend.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+
+import com.collabera.teambeans.capstonebeansbackend.mysql.types.UserRole;
 
 /**
  * 
@@ -36,6 +40,15 @@ public class UserDetails {
 	
 	@NotBlank
 	private String userRole;
+	
+	/*
+	
+	//using user role as enum
+	@Enumerated(EnumType.STRING)
+	@NotBlank
+	private UserRole userRole;
+	
+	*/
 
 	public UserDetails() {
 		super();
