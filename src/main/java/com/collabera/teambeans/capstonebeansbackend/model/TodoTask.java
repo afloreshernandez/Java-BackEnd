@@ -198,6 +198,7 @@
 package com.collabera.teambeans.capstonebeansbackend.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -206,9 +207,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -221,7 +223,7 @@ import com.collabera.teambeans.capstonebeansbackend.mysql.types.Status;
  * @date 2020-01-18
  */
 @Entity
-@Table(name="todotask")
+@Table(name="TodoTask")
 public class TodoTask{
 	
 	@Id
@@ -232,25 +234,34 @@ public class TodoTask{
 	@NotBlank
 	private String description;
 
-	@NotBlank
 	@Enumerated(EnumType.STRING)
 	private PriorityLevel priority;
 
-	@NotBlank
 	@Enumerated(EnumType.STRING)
 	private Status status;	
 
-/*	
+
 	@ManyToOne
 	@JoinColumn(name="user_id", referencedColumnName = "user_id")
 	private UserDetails user;
-*/
+	
+	
+	/*
+	@OneToMany
+	private Set<TodoTask> todoList = new HashSet<TodoTask>();
+	*/
+//	@OneToMany
+//	private List<TodoTask> todoList;
+
+	
+	/*
 	@Temporal(TemporalType.DATE)
 	private Date dueDate;
 
 	@Temporal(TemporalType.TIME)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
 	private Date dueTime;
-
+*/
 
 	/**
 	 * Constructs a new To Do task with no information. This is really only here for use by spring beans.
@@ -331,19 +342,18 @@ public class TodoTask{
 	}
 
 	
-	/*
+	
 	public UserDetails getUser() {
 		return user;
 	}
 
 	public void setUser(UserDetails user) {
-
 		this.user = user;
 	}
-	*/
+	
 	
 
-	
+	/*
 	public Date getDueDate() {
 		return dueDate;
 	}
@@ -352,23 +362,25 @@ public class TodoTask{
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
-
+*/
 	/**
 	 * 
 	 * @return
 	 */
-	public Date getDueTime() {
-		return dueTime;
-	}
-
-	/**
-	 * 
-	 * @param dueTime
-	 */
-	public void setDueTime(Date dueTime) {
-
-		this.dueTime = dueTime;
-	}
+	
+//	
+//	public Date getDueTime() {
+//		return dueTime;
+//	}
+//
+//	/**
+//	 * 
+//	 * @param dueTime
+//	 */
+//	public void setDueTime(Date dueTime) {
+//
+//		this.dueTime = dueTime;
+//	}
 	//*/
 	
 	/**

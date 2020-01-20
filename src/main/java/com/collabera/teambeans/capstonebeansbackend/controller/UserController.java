@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.collabera.teambeans.capstonebeansbackend.model.User;
+import com.collabera.teambeans.capstonebeansbackend.model.UserDetails;
 import com.collabera.teambeans.capstonebeansbackend.repository.UserRepository;
 
 @RestController
@@ -23,26 +23,26 @@ public class UserController {
 
 	//returns all users
 	@GetMapping("/users")
-	public List<User> getAllUsers(){
+	public List<UserDetails> getAllUsers(){
 		return repository.findAll();
 	}
 	@GetMapping("/users/{userID}")
-	public User getUser(@PathVariable ("userID") Long id) {
+	public UserDetails getUser(@PathVariable ("userID") Long id) {
 
-		Optional<User> found = repository.findById(id);
+		Optional<UserDetails> found = repository.findById(id);
 
 		if(found.isPresent()) {
 			return found.get();
 		}
 		else {
-			return new User();
+			return new UserDetails();
 		}	
 	}
 
 	@PostMapping("/users/adduser")
-	public void addUser(@RequestBody User user) {
+	public void addUser(@RequestBody UserDetails user) {
 		boolean foundUser = repository.findAll()
-				.stream().anyMatch(c -> c.getUserID() == user.getUserID());
+				.stream().anyMatch(c -> c.getUserId() == user.getUserId());
 		
 		if (!foundUser) {
 			repository.save(user);
@@ -51,11 +51,11 @@ public class UserController {
 	} 
 
 	@PutMapping("/users/updateuser")
-	public void  updateUser ( @RequestBody User user) {
-		Optional <User> optToUpdate = repository.findById(user.getUserID());
+	public void  updateUser ( @RequestBody UserDetails user) {
+		Optional <UserDetails> optToUpdate = repository.findById(user.getUserId());
 
 		if (optToUpdate.isPresent()) {
-			User toUpdate = optToUpdate.get();
+			UserDetails toUpdate = optToUpdate.get();
 
 			//toUpdate.setUserID(user.getUserID());
 			toUpdate.setFirstName(user.getFirstName());
@@ -72,6 +72,7 @@ public class UserController {
 	public void deleteUser(@PathVariable ("userID") Long id) {
 		repository.deleteById((long) id);
 	}
+}
 
 //	//@PatchMapping("/updateuser/password/{}")
 //	public void updatePassword(String password, Long id){
@@ -95,4 +96,4 @@ public class UserController {
 //			repository.save(userToUpdate);
 //		}			
 //	}				
-}// ends class
+// ends class

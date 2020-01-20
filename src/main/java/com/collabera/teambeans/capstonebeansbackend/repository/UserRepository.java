@@ -5,13 +5,13 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.collabera.teambeans.capstonebeansbackend.model.User;
+import com.collabera.teambeans.capstonebeansbackend.model.UserDetails;
 
 
-public interface UserRepository extends JpaRepository<User, Long >{
+public interface UserRepository extends JpaRepository<UserDetails, Long >{
 
-	List<User> findAll();
+	List<UserDetails> findAll();
 	
 	// returns one student by their id
-	Optional<User> findById(Long id);
+	Optional<UserDetails> findById(Long id);
 }
