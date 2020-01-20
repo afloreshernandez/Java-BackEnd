@@ -30,7 +30,7 @@ public class TodoController {
 	public EntityModel<TodoTask> getTest() {
 		TodoTask todo = new TodoTask();
 		todo.setDescription("Test Desc");
-		todo.setDueTime(Date.valueOf(LocalDate.now()));
+		//todo.setDueTime(Date.valueOf(LocalDate.now()));
 		todo.setId(-1L);
 		todo.setPriority(PriorityLevel.NORMAL);
 		todo.setStatus(Status.PENDING);
@@ -43,7 +43,7 @@ public class TodoController {
 	public TodoTask getTodo() {
 		TodoTask todo = new TodoTask();
 		todo.setDescription("Test Desc");
-		todo.setDueTime(Date.valueOf(LocalDate.now()));
+		//todo.setDueTime(Date.valueOf(LocalDate.now()));
 		todo.setId(-1L);
 		todo.setPriority(PriorityLevel.NORMAL);
 		todo.setStatus(Status.PENDING);

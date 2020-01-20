@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.collabera.teambeans.capstonebeansbackend.model.UserDetails;
+
 import com.collabera.teambeans.capstonebeansbackend.repository.UserDetailsRepository;
 
 @RestController
@@ -76,17 +77,7 @@ public class UserController {
 		repository.deleteById((long) id);
 	}
 
-//	//@PatchMapping("/updateuser/password/{}")
-//	public void updatePassword(String password, Long id){
-//
-//		User userToUpdate = getUser(id);
-//
-//		if (userToUpdate.getUserID() != -1L) {
-//			userToUpdate.setPassword(password);
-//			repository.save(userToUpdate);
-//		}
-//	}
-	
+
 	@PatchMapping("/user/{userId}")
 	public void updateRole(@PathVariable Long id, String userRole) {
 
@@ -98,4 +89,4 @@ public class UserController {
 			repository.save(userToUpdate);
 		}			
 	}				
-}// ends class
+}

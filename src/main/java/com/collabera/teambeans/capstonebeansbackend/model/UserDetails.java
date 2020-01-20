@@ -1,7 +1,6 @@
 package com.collabera.teambeans.capstonebeansbackend.model;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -16,8 +15,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
-import org.hibernate.annotations.FetchMode;
-
 /**
  * 
  * @author Alex
@@ -26,12 +23,14 @@ import org.hibernate.annotations.FetchMode;
 @Entity
 @Table(name="user_details")
 public class UserDetails {
+	
 	@Id
 	@Column(name = "user_Id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long userId;
 	
-	@NotBlank
+	//@NotBlank
+	@NotEmpty
 	private String firstName;
 	
 	@NotEmpty
@@ -45,15 +44,6 @@ public class UserDetails {
 	
 	@NotBlank
 	private String userRole;
-	
-	/*
-	
-	//using user role as enum
-	@Enumerated(EnumType.STRING)
-	@NotBlank
-	private UserRole userRole;
-	
-	*/
 
 	@OneToMany(mappedBy = "user", targetEntity = TodoTask.class, fetch= FetchType.EAGER, cascade = CascadeType.ALL)
 	Set<TodoTask> todoTasks = new HashSet<>();
@@ -61,6 +51,7 @@ public class UserDetails {
 	@OneToMany(mappedBy="user", targetEntity=TodoDaily.class, fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	Set<TodoDaily> todoDailies = new HashSet<>();
 	
+
 	public UserDetails() {
 		super();
 	}
