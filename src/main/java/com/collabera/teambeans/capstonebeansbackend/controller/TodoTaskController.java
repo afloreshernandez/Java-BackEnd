@@ -37,11 +37,6 @@ public class TodoTaskController {
 		user.setUserId(user_id);
 		return todoRepository.findByUser(user);
 	}
-	
-	@GetMapping("/todoId/{todo_id}")
-	public Optional<TodoTask> getSingleTodoTask(@PathVariable Long todo_id) {
-		return todoRepository.findById(todo_id);
-	}
 
 	@GetMapping("/todoId/{todo_id}")
 	public Optional<TodoTask> getSingleTodoTask(@PathVariable Long todo_id) {
