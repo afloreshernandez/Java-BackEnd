@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -47,8 +46,7 @@ public class UserDetails {
 	private String userRole;
 
 	@OneToMany(mappedBy = "user", targetEntity = TodoTask.class, fetch= FetchType.EAGER)
-	Set<TodoTask> todotasks new HashSet<>();
-	
+	List<TodoTask> todoTasks;// = new HashSet<>();
 	
 	@OneToMany(mappedBy="user", targetEntity=TodoDaily.class, fetch=FetchType.EAGER)
 	Set<TodoDaily> todoDailies = new HashSet<>();
