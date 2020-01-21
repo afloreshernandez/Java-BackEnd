@@ -137,9 +137,23 @@ public class TodoTask{
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+	
+	public Date getDueDate() {
+		return dueDate;
+	}
 
-	
-	
+	public void setDueDate(Date dueDate) {
+		this.dueDate = dueDate;
+	}
+
+	public Date getDueTime() {
+		return dueTime;
+	}
+
+	public void setDueTime(Date dueTime) {
+		this.dueTime = dueTime;
+	}
+
 	public UserDetails getUser() {
 		return user;
 	}
@@ -147,46 +161,15 @@ public class TodoTask{
 	public void setUser(UserDetails user) {
 		this.user = user;
 	}
-	
 
-	/*
-	public Date getDueDate() {
-		return dueDate;
-	}
-
-
-	public void setDueDate(Date dueDate) {
-		this.dueDate = dueDate;
-	}
-*/
-	/**
-	 * 
-	 * @return
-	 */
-	
-//	
-//	public Date getDueTime() {
-//		return dueTime;
-//	}
-//
-//	/**
-//	 * 
-//	 * @param dueTime
-//	 */
-//	public void setDueTime(Date dueTime) {
-//
-//		this.dueTime = dueTime;
-//	}
-	//*/
-	
-	/**
-	 * 
-	 */
 	@Override
 	public String toString() {
-		return "TodoTask [id=" + id + ", description=" + description + ", priority=" + priority + ", status=" + status;
-			
+		return "TodoTask [id=" + id + ", description=" + description + ", priority=" + priority + ", status=" + status
+				+ ", user=" + user + ", dueDate=" + dueDate + ", dueTime=" + dueTime + "]";
 	}
+	
+
+
 }
 
 
