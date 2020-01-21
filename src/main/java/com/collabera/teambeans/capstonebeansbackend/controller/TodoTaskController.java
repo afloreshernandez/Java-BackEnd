@@ -69,7 +69,4 @@ public class TodoTaskController {
 		todoRepository.save(todoTask);
 		return ResponseEntity.noContent().build();
 	}
-
-
-
 }

@@ -47,7 +47,7 @@ public class UserDetails {
 	private String userRole;
 
 	@OneToMany(mappedBy = "user", targetEntity = TodoTask.class, fetch= FetchType.EAGER)
-	Set<TodoTask> todotasks new HashSet<>();
+	Set<TodoTask> todotasks = new HashSet<>();
 	
 	
 	@OneToMany(mappedBy="user", targetEntity=TodoDaily.class, fetch=FetchType.EAGER)
