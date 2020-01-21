@@ -9,9 +9,9 @@ import com.collabera.teambeans.capstonebeansbackend.bean.UserAuthenticationBean;
 
 public class UserAuthController {
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api/v1")
+//@RequestMapping("/api/v1")
 public class BasicAuthController {
 
 	@GetMapping(path = "/basicauth")
