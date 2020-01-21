@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -14,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.collabera.teambeans.capstonebeansbackend.model.UserDetails;
-
 import com.collabera.teambeans.capstonebeansbackend.repository.UserDetailsRepository;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
 	@Autowired
@@ -75,7 +76,17 @@ public class UserController {
 		repository.deleteById((long) id);
 	}
 
-
+//	//@PatchMapping("/updateuser/password/{}")
+//	public void updatePassword(String password, Long id){
+//
+//		User userToUpdate = getUser(id);
+//
+//		if (userToUpdate.getUserID() != -1L) {
+//			userToUpdate.setPassword(password);
+//			repository.save(userToUpdate);
+//		}
+//	}
+	
 	@PatchMapping("/user/{userId}")
 	public void updateRole(@PathVariable Long id, String userRole) {
 
@@ -87,4 +98,4 @@ public class UserController {
 			repository.save(userToUpdate);
 		}			
 	}				
-}
+}// ends class
