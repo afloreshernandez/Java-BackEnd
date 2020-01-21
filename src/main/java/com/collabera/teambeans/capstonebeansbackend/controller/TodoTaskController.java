@@ -37,6 +37,11 @@ public class TodoTaskController {
 		return todoRepository.findByUser(user);
 	}
 
+	@GetMapping("/todoId/{todo_id}")
+	public Optional<TodoTask> getSingleTodoTask(@PathVariable Long todo_id) {
+		return todoRepository.findById(todo_id);
+	}
+	
 	// Add todo
 	@PostMapping("/todos/{user_id}")
 	public ResponseEntity<Object> createTodo(@PathVariable("user_id") Long user_id, @RequestBody TodoTask todoTask) {
