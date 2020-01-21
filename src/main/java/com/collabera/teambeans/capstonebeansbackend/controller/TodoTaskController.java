@@ -49,6 +49,8 @@ public class TodoTaskController {
 
 		todoTask.getUser().setUserId(user_id);
 
+		System.out.println(todoTask);
+		
 
 		TodoTask savedTodo = todoRepository.save(todoTask);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{user_id}")
