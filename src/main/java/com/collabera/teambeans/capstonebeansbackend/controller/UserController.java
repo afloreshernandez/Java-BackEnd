@@ -18,7 +18,7 @@ import com.collabera.teambeans.capstonebeansbackend.model.UserDetails;
 import com.collabera.teambeans.capstonebeansbackend.repository.UserDetailsRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+
 public class UserController {
 
 	@Autowired
