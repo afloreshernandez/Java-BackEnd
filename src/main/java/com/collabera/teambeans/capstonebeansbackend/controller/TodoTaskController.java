@@ -21,6 +21,7 @@ import com.collabera.teambeans.capstonebeansbackend.repository.TodoRepository;
 import com.collabera.teambeans.capstonebeansbackend.repository.UserDetailsRepository;
 
 @RestController
+
 public class TodoTaskController {
 
 	@Autowired
@@ -35,6 +36,11 @@ public class TodoTaskController {
 		UserDetails user = new UserDetails();
 		user.setUserId(user_id);
 		return todoRepository.findByUser(user);
+	}
+	
+	@GetMapping("/todoId/{todo_id}")
+	public Optional<TodoTask> getSingleTodoTask(@PathVariable Long todo_id) {
+		return todoRepository.findById(todo_id);
 	}
 
 	// Add todo
