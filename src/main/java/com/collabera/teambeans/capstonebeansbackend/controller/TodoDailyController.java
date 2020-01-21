@@ -18,7 +18,7 @@ import com.collabera.teambeans.capstonebeansbackend.repository.TodoDailyReposito
 
 @RestController
 @RequestMapping("/daily")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class TodoDailyController {
 
 	@Autowired
