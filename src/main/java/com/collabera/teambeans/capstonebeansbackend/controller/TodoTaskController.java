@@ -49,6 +49,8 @@ public class TodoTaskController {
 
 		todoTask.getUser().setUserId(user_id);
 
+		System.out.println(todoTask);
+		
 
 		TodoTask savedTodo = todoRepository.save(todoTask);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{user_id}")
@@ -65,8 +67,18 @@ public class TodoTaskController {
 	@PutMapping("/todos/{todo_id}")
 	public ResponseEntity<Object> updateTodo(@RequestBody TodoTask todoTask, @PathVariable long todo_id) {
 
-		todoTask.getUser().setUserId(todo_id);
+		System.out.println(todoTask);
+		
+		Optional<TodoTask> todo = todoRepository.findById(todo_id);
+		
+		if(todo.isEmpty()) {
+			System.out.println("Bad");
+			return ResponseEntity.badRequest().build();
+		}
+		todoTask.setId(todo_id);
+		todoTask.setUser(todo.get().getUser());
 		todoRepository.save(todoTask);
-		return ResponseEntity.noContent().build();
+		
+		return ResponseEntity.ok().build();
 	}
 }
