@@ -1,6 +1,7 @@
 package com.collabera.teambeans.capstonebeansbackend.model;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -46,7 +47,8 @@ public class UserDetails {
 	private String userRole;
 
 	@OneToMany(mappedBy = "user", targetEntity = TodoTask.class, fetch= FetchType.EAGER)
-	Set<TodoTask> todoTasks = new HashSet<>();
+	Set<TodoTask> todotasks new HashSet<>();
+	
 	
 	@OneToMany(mappedBy="user", targetEntity=TodoDaily.class, fetch=FetchType.EAGER)
 	Set<TodoDaily> todoDailies = new HashSet<>();
