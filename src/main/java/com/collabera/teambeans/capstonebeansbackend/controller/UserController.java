@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,17 +32,20 @@ public class UserController {
 		return repository.findAll();
 	}
 	@GetMapping("/users/{userID}")
-	public UserDetails getUser(@PathVariable ("userID") Long id) {
+	public EntityModel <UserDetails> getUser(@PathVariable ("userID") Long id) throws Exception {
 
 		Optional<UserDetails> found = repository.findById(id);
 
-		if(found.isPresent()) {
-			return found.get();
-		}
-		else {
-			return new UserDetails();
+		if(!found.isPresent()) 
+			throw new Exception("Id not found..");
+			
+			EntityModel<UserDetails> resource = new EntityModel<UserDetails>(found.get());
+			WebMvcLinkBuilder linkTo = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).getAllUsers());
+			resource.add(linkTo.withRel("http://localhost:8080"));
+
+			return resource;
 		}	
-	}
+	
 
 	@PostMapping("/users/adduser")
 	public void addUser(@RequestBody UserDetails user) {
@@ -87,15 +92,24 @@ public class UserController {
 //		}
 //	}
 	
+	
+	
 	@PatchMapping("/user/{userId}")
-	public void updateRole(@PathVariable Long id, String userRole) {
+	public EntityModel<UserDetails> updateRole(@PathVariable Long userId, String userRole) {
 
-		UserDetails userToUpdate = getUser(id);
+		UserDetails userToUpdate = repository.findById(userId).get();
 
 		if (userToUpdate.getUserId() != -1L) {
 			userToUpdate.setUserRole(userRole);
 
 			repository.save(userToUpdate);
-		}			
-	}				
+		}	
+		
+		EntityModel<UserDetails> resource = new EntityModel<UserDetails>(userToUpdate);
+		WebMvcLinkBuilder linkTo = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).getAllUsers());
+		resource.add(linkTo.withRel("http://localhost:8080"));
+		
+		return resource;
+	}
+	
 }// ends class
