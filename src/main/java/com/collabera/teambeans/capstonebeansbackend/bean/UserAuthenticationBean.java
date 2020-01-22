@@ -1,5 +1,6 @@
 package com.collabera.teambeans.capstonebeansbackend.bean;
 
+@Deprecated
 public class UserAuthenticationBean {
 
 	private String message;
@@ -7,7 +8,7 @@ public class UserAuthenticationBean {
 	public UserAuthenticationBean (String message) {
 		this.setMessage(message);
 	}
-
+	
 	public String getMessage() {
 		return message;
 	}
