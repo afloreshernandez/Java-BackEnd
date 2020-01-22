@@ -11,7 +11,7 @@ public class UserAuthController {
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("")
+@RequestMapping("/api/v1")
 public class BasicAuthController {
 
 	@GetMapping(path = "/basicauth")
