@@ -31,7 +31,6 @@ public class TodoTaskController {
 	@Autowired
 	private UserDetailsRepository userDetailsRepository;
 
-
 	@GetMapping("/todos/{user_id}")
 	public List<TodoTask> retrieveUserTodo(@PathVariable("user_id") Long user_id){
 		UserDetails user = new UserDetails();
@@ -68,7 +67,6 @@ public class TodoTaskController {
 	public void deleteTodo(@PathVariable long todo_id) {
 		todoRepository.deleteById(todo_id);
 	}
-
 
 	@PutMapping("/todos/{todo_id}")
 	public ResponseEntity<Object> updateTodo(@RequestBody TodoTask todoTask, @PathVariable long todo_id) {
