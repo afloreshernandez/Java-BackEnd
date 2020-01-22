@@ -47,6 +47,12 @@ public class TodoTaskController {
 	@PostMapping("/todos/{user_id}")
 	public ResponseEntity<Object> createTodo(@PathVariable("user_id") Long user_id, @RequestBody TodoTask todoTask) {
 
+		//This fixes the front end's tendency to convert date to GMT
+		//Note: this causes a similar bug to now appear when using Postman
+		//If we need postman to work correctly consider moving this functionality
+		//to another endpoint. The same goes for the Put Mapping below
+		todoTask.getDueDate().setHours(todoTask.getDueDate().getHours()+6);
+		todoTask.getDueTime().setHours(todoTask.getDueTime().getHours()+6);
 	
 		Optional<UserDetails> user = userDetailsRepository.findById(user_id);
 		
@@ -71,6 +77,13 @@ public class TodoTaskController {
 	@PutMapping("/todos/{todo_id}")
 	public ResponseEntity<Object> updateTodo(@RequestBody TodoTask todoTask, @PathVariable long todo_id) {
 
+		//This fixes the front end's tendency to convert date to GMT
+		//Note: this causes a similar bug to now appear when using Postman
+		//If we need postman to work correctly consider moving this functionality
+		//to another endpoint. Ame goes for the Post Mapping above
+		todoTask.getDueDate().setHours(todoTask.getDueDate().getHours()+6);
+		todoTask.getDueTime().setHours(todoTask.getDueTime().getHours()+6);
+		
 		System.out.println(todoTask);
 		
 		Optional<TodoTask> todo = todoRepository.findById(todo_id);
