@@ -21,5 +21,7 @@ public class UserSecurity extends WebSecurityConfigurerAdapter {
             .authenticated()
             .and()
             .httpBasic();
+        
+        
     }
 }
