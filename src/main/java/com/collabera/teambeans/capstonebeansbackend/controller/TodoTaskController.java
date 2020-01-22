@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Link;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,8 +41,10 @@ public class TodoTaskController {
 	}
 
 	@GetMapping("/todoId/{todo_id}")
-	public Optional<TodoTask> getSingleTodoTask(@PathVariable Long todo_id) {
-		return todoRepository.findById(todo_id);
+	public EntityModel<TodoTask> getSingleTodoTask(@PathVariable Long todo_id) {
+		return new EntityModel<TodoTask>(
+				todoRepository.findById(todo_id).get(),
+				new Link("http://localhost:8080/"));
 	}
 	
 	// Add todo
