@@ -17,6 +17,8 @@ public class UserSecurity extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
             .antMatchers(HttpMethod.OPTIONS, "/**")
             .permitAll()
+            //.anyRequest()
+            //.authenticated()
             .and()
             .httpBasic();
         
