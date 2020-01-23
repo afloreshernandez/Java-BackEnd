@@ -27,11 +27,19 @@ import com.collabera.teambeans.capstonebeansbackend.repository.UserDetailsReposi
 @CrossOrigin(origins = "http://localhost:4200")
 public class TodoTaskController {
 
-	@Autowired
 	private TodoRepository todoRepository;
-	
-	@Autowired
 	private UserDetailsRepository userDetailsRepository;
+	
+	
+    @Autowired
+    public void setTodoRepository(TodoRepository todoRepository) {
+        this.todoRepository = todoRepository;
+    }
+    
+    @Autowired
+    public void setUserRepository(UserDetailsRepository userRepository) {
+        this.userDetailsRepository = userRepository;
+    }
 
 	@GetMapping("/todos/{user_id}")
 	public List<TodoTask> retrieveUserTodo(@PathVariable("user_id") Long user_id){
@@ -87,8 +95,9 @@ public class TodoTaskController {
 		//to another endpoint. Ame goes for the Post Mapping above
 		todoTask.getDueDate().setHours(todoTask.getDueDate().getHours()+6);
 		todoTask.getDueTime().setHours(todoTask.getDueTime().getHours()+6);
-		
+
 		System.out.println(todoTask);
+		System.out.println(todo_id);
 		
 		Optional<TodoTask> todo = todoRepository.findById(todo_id);
 		
