@@ -40,6 +40,11 @@ public class TodoTaskController {
     public void setUserRepository(UserDetailsRepository userRepository) {
         this.userDetailsRepository = userRepository;
     }
+    
+    @GetMapping("/todos")
+	public List<TodoTask> getAllTodos(){
+		return todoRepository.findAll();
+	}
 
 	@GetMapping("/todos/{user_id}")
 	public List<TodoTask> retrieveUserTodo(@PathVariable("user_id") Long user_id){
