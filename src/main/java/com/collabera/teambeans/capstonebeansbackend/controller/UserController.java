@@ -45,7 +45,6 @@ public class UserController {
 
 			return resource;
 		}	
-	
 
 	@PostMapping("/users/adduser")
 	public void addUser(@RequestBody UserDetails user) {
