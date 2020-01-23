@@ -29,6 +29,11 @@ public class TodoDailyController {
 	@Autowired
 	private TodoRepository todoRepo;
 	
+	/**
+	 *       
+	 * @param user_id
+	 * @return
+	 */
 	@GetMapping("/{user_id}")
 	public List<TodoDaily> getDailies(@PathVariable("user_id") Long user_id) {
 		UserDetails user = new UserDetails();

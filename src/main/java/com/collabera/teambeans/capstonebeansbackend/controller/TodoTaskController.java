@@ -23,6 +23,8 @@ import com.collabera.teambeans.capstonebeansbackend.model.UserDetails;
 import com.collabera.teambeans.capstonebeansbackend.repository.TodoRepository;
 import com.collabera.teambeans.capstonebeansbackend.repository.UserDetailsRepository;
 
+import sun.util.calendar.BaseCalendar.Date;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class TodoTaskController {
@@ -37,7 +39,24 @@ public class TodoTaskController {
 	public List<TodoTask> retrieveUserTodo(@PathVariable("user_id") Long user_id){
 		UserDetails user = new UserDetails();
 		user.setUserId(user_id);
-		return todoRepository.findByUser(user);
+		
+		List<TodoTask> tasks = todoRepository.findByUser(user);
+		
+		tasks.sort((a,b)->{
+			java.util.Date datea = a.getDueDate();
+			datea.setHours(a.getDueTime().getHours());
+			datea.setMinutes(a.getDueTime().getMinutes());
+			datea.setSeconds(a.getDueTime().getSeconds());
+			
+			java.util.Date dateb = b.getDueDate();
+			dateb.setHours(b.getDueDate().getHours());
+			dateb.setMinutes(b.getDueTime().getMinutes());
+			dateb.setSeconds(b.getDueTime().getSeconds());
+			
+			return datea.compareTo(dateb);
+		});
+		
+		return tasks;
 	}
 
 	@GetMapping("/todoId/{todo_id}")
