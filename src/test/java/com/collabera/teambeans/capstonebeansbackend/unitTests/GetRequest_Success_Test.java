@@ -1,6 +1,5 @@
 package com.collabera.teambeans.capstonebeansbackend.unitTests;
 
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -20,7 +19,7 @@ import com.collabera.teambeans.capstonebeansbackend.controller.TodoTaskControlle
 import com.collabera.teambeans.capstonebeansbackend.repository.TodoRepository;
 
 @RunWith(MockitoJUnitRunner.class)
-public class DeleteHttpRequestTest {
+public class GetRequest_Success_Test {
 
 	private MockMvc mockMvc;
 
@@ -36,11 +35,17 @@ public class DeleteHttpRequestTest {
 
         mockMvc = MockMvcBuilders.standaloneSetup(todoTaskController).build();
     }
-
+	
+	
+	
+	
 	@Test
 	public void testGetHttpRequest() throws Exception{
-		mockMvc.perform(delete("/todos/3").contentType("application/json"))
+		mockMvc.perform(get("/todos/1").contentType("application/json"))
 				.andExpect(status().isOk());
 
+		mockMvc.perform(get("/todoId/2").contentType("application/json"))
+		.andExpect(status().isOk());
+		
 	}
 }
