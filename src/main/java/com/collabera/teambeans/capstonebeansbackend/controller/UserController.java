@@ -41,7 +41,7 @@ public class UserController {
 			
 			EntityModel<UserDetails> resource = new EntityModel<UserDetails>(found.get());
 			WebMvcLinkBuilder linkTo = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).getAllUsers());
-			resource.add(linkTo.withRel("http://localhost:8080"));
+			resource.add(linkTo.withRel("All-users"));
 
 			return resource;
 		}	
