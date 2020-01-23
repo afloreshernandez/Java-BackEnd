@@ -72,7 +72,6 @@ public class TodoDailyController {
 		
 		todoRepo.saveAll(tasks);
 		
-		
 		return tasks;
 	}
 }
