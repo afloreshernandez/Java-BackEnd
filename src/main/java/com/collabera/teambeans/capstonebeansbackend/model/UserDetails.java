@@ -47,7 +47,6 @@ public class UserDetails {
 	@NotBlank
 	private String userRole;
 
-
 	@OneToMany(mappedBy = "user", targetEntity = TodoTask.class, fetch= FetchType.EAGER)
 	List<TodoTask> todoTasks;// = new HashSet<>();
 
