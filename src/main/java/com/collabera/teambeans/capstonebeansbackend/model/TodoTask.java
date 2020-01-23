@@ -167,9 +167,4 @@ public class TodoTask{
 		return "TodoTask [id=" + id + ", description=" + description + ", priority=" + priority + ", status=" + status
 				+ ", user=" + user + ", dueDate=" + dueDate + ", dueTime=" + dueTime + "]";
 	}
-	
-
-
 }
-
-
