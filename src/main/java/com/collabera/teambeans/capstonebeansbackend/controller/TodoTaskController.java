@@ -35,6 +35,12 @@ public class TodoTaskController {
 	@Autowired
 	private UserDetailsRepository userDetailsRepository;
 
+	/**
+	 * Returns all of the TodoTasks for the given user
+	 * 
+	 * @param user_id
+	 * @return
+	 */
 	@GetMapping("/todos/{user_id}")
 	public List<TodoTask> retrieveUserTodo(@PathVariable("user_id") Long user_id){
 		UserDetails user = new UserDetails();
@@ -42,23 +48,28 @@ public class TodoTaskController {
 		
 		List<TodoTask> tasks = todoRepository.findByUser(user);
 		
-		tasks.sort((a,b)->{
-			java.util.Date datea = a.getDueDate();
-			datea.setHours(a.getDueTime().getHours());
-			datea.setMinutes(a.getDueTime().getMinutes());
-			datea.setSeconds(a.getDueTime().getSeconds());
-			
-			java.util.Date dateb = b.getDueDate();
-			dateb.setHours(b.getDueDate().getHours());
-			dateb.setMinutes(b.getDueTime().getMinutes());
-			dateb.setSeconds(b.getDueTime().getSeconds());
-			
-			return datea.compareTo(dateb);
-		});
+//		tasks.sort((a,b)->{
+//			java.util.Date datea = a.getDueDate();
+//			datea.setHours(a.getDueTime().getHours());
+//			datea.setMinutes(a.getDueTime().getMinutes());
+//			datea.setSeconds(a.getDueTime().getSeconds());
+//			
+//			java.util.Date dateb = b.getDueDate();
+//			dateb.setHours(b.getDueDate().getHours());
+//			dateb.setMinutes(b.getDueTime().getMinutes());
+//			dateb.setSeconds(b.getDueTime().getSeconds());
+//			
+//			return datea.compareTo(dateb);
+//		});
 		
 		return tasks;
 	}
 
+	/**
+	 * Returns the one TodoTask with the given todo_id
+	 * @param todo_id
+	 * @return
+	 */
 	@GetMapping("/todoId/{todo_id}")
 	public EntityModel<TodoTask> getSingleTodoTask(@PathVariable Long todo_id) {
 		return new EntityModel<TodoTask>(
